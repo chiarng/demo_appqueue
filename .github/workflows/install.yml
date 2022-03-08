@@ -79,7 +79,7 @@ jobs:
           version: ${{ needs.publish.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
-          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowPassword: ${{ secrets.NOW_PASSWORD2 }}
           nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appSysID: ${{ secrets.APPQUEUE1 }}
 
@@ -111,7 +111,7 @@ jobs:
           version: ${{ needs.publish.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
-          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowPassword: ${{ secrets.NOW_PASSWORD2 }}
           nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appSysID: ${{ secrets.APPQUEUE2 }}
           
@@ -143,7 +143,7 @@ jobs:
           version: ${{ needs.publish.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
-          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowPassword: ${{ secrets.NOW_PASSWORD2 }}
           nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appSysID: ${{ secrets.APPQUEUE3 }}
 

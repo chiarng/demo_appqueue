@@ -146,9 +146,3 @@ jobs:
           nowPassword: ${{ secrets.NOW_PASSWORD2 }}
           nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appSysID: ${{ secrets.APPQUEUE3 }}
-
-# trigger demo
-# last try
-# demo trigger again
-# demo test
-# test

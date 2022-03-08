@@ -53,6 +53,7 @@ jobs:
 
   install_SD:
     name: Install test apps on SD
+    needs: publish_SD
     runs-on: ubuntu-latest
 
     steps:
@@ -95,6 +96,7 @@ jobs:
 
   install_T:
     name: Install test apps on T
+    needs: publish_SD
     runs-on: ubuntu-latest
 
     steps:

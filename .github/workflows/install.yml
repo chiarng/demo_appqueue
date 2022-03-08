@@ -51,8 +51,8 @@ jobs:
     outputs:
       publishversion: ${{ steps.publish_app1.outputs.newVersion }}
 
-  install_SD:
-    name: Install test apps on SD
+  install_app1:
+    name: Install app1
     needs: publish_SD
     runs-on: ubuntu-latest
 
@@ -77,11 +77,47 @@ jobs:
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
           nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
+          appSysID: ${{ secrets.APPQUEUE1 }}
+
+  install_app2:
+    name: Install app2
+    needs: publish_SD
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: ServiceNow CI/CD Install App
+        id: install_app1
+        uses: ServiceNow/sncicd-install-app@2.0.0
+        with:
+          version: ${{ needs.publish_SD.outputs.publishversion }}
+        env:
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
           nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appSysID: ${{ secrets.APPQUEUE2 }}
-          
+
       - name: ServiceNow CI/CD Install App
-        id: install_app3
+        id: install_app2
+        uses: ServiceNow/sncicd-install-app@2.0.0
+        with:
+          version: ${{ needs.publish_SD.outputs.publishversion }}
+        env:
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
+          appSysID: ${{ secrets.APPQUEUE2 }}
+
+  install_app3:
+    name: Install app3
+    needs: publish_SD
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: ServiceNow CI/CD Install App
+        id: install_app1
         uses: ServiceNow/sncicd-install-app@2.0.0
         with:
           version: ${{ needs.publish_SD.outputs.publishversion }}
@@ -91,37 +127,8 @@ jobs:
           nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appSysID: ${{ secrets.APPQUEUE3 }}
 
-  install_T:
-    name: Install test apps on T
-    needs: publish_SD
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - name: ServiceNow CI/CD Install App
-        id: install_app1
-        uses: ServiceNow/sncicd-install-app@2.0.0
-        with:
-          version: ${{ needs.publish_SD.outputs.publishversion }}
-        env:
-          nowUsername: ${{ secrets.NOW_USERNAME }}
-          nowPassword: ${{ secrets.NOW_PASSWORD }}
-          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
-          appSysID: ${{ secrets.APPQUEUE1 }}
-
       - name: ServiceNow CI/CD Install App
         id: install_app2
-        uses: ServiceNow/sncicd-install-app@2.0.0
-        with:
-          version: ${{ needs.publish_SD.outputs.publishversion }}
-        env:
-          nowUsername: ${{ secrets.NOW_USERNAME }}
-          nowPassword: ${{ secrets.NOW_PASSWORD }}
-          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
-          appSysID: ${{ secrets.APPQUEUE2 }}
-          
-      - name: ServiceNow CI/CD Install App
-        id: install_app3
         uses: ServiceNow/sncicd-install-app@2.0.0
         with:
           version: ${{ needs.publish_SD.outputs.publishversion }}

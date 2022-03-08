@@ -19,9 +19,9 @@ jobs:
           versionTemplate: 1.0
           versionFormat: template
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowSourceInstance: ${{ secrets.CHIARNGDEV }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowSourceInstance: ${{ secrets.CHIARNGDEV }}
           appScope: ${{ secrets.APPQUEUE1 }}
           
       - name: ServiceNow CI/CD Publish App
@@ -31,9 +31,9 @@ jobs:
           versionTemplate: 1.0
           versionFormat: template
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowSourceInstance: ${{ secrets.CHIARNGDEV }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowSourceInstance: ${{ secrets.CHIARNGDEV }}
           appScope: ${{ secrets.APPQUEUE2 }}
 
       - name: ServiceNow CI/CD Publish App
@@ -43,9 +43,9 @@ jobs:
           versionTemplate: 1.0
           versionFormat: template
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowSourceInstance: ${{ secrets.CHIARNGDEV }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowSourceInstance: ${{ secrets.CHIARNGDEV }}
           appScope: ${{ secrets.APPQUEUE3 }}
 
     outputs:
@@ -63,9 +63,9 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGTEST }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appScope: ${{ secrets.APPQUEUE1 }}
 
       - name: ServiceNow CI/CD Install App
@@ -74,9 +74,9 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGTEST }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appScope: ${{ secrets.APPQUEUE2 }}
           
       - name: ServiceNow CI/CD Install App
@@ -85,9 +85,9 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGTEST }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appScope: ${{ secrets.APPQUEUE3 }}
 
     outputs:
@@ -105,9 +105,9 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appScope: ${{ secrets.APPQUEUE1 }}
 
       - name: ServiceNow CI/CD Install App
@@ -116,9 +116,9 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appScope: ${{ secrets.APPQUEUE2 }}
           
       - name: ServiceNow CI/CD Install App
@@ -127,7 +127,7 @@ jobs:
         with:
           version: ${{steps.publish_app.outputs.newVersion}}
         env:
-          snowUsername: ${{ secrets.NOW_USERNAME }}
-          snowPassword: ${{ secrets.NOW_PASSWORD }}
-          snowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
+          nowUsername: ${{ secrets.NOW_USERNAME }}
+          nowPassword: ${{ secrets.NOW_PASSWORD }}
+          nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appScope: ${{ secrets.APPQUEUE3 }}

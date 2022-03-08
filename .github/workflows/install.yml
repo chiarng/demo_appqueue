@@ -147,3 +147,4 @@ jobs:
           nowInstallInstance: ${{ secrets.CHIARNGNIGHTLY }}
           appSysID: ${{ secrets.APPQUEUE3 }}
 
+# trigger demo

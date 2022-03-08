@@ -16,7 +16,7 @@ jobs:
         id: publish_app1
         uses: ServiceNow/sncicd-publish-app@2.0.1
         with:
-          versionTemplate: 1.0
+          versionTemplate: 1.5
           versionFormat: template
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
@@ -28,7 +28,7 @@ jobs:
         id: publish_app2
         uses: ServiceNow/sncicd-publish-app@2.0.1
         with:
-          versionTemplate: 1.0
+          versionTemplate: 1.5
           versionFormat: template
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
@@ -40,7 +40,7 @@ jobs:
         id: publish_app3
         uses: ServiceNow/sncicd-publish-app@2.0.1
         with:
-          versionTemplate: 1.0
+          versionTemplate: 1.5
           versionFormat: template
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}

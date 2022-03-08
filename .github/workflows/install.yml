@@ -3,7 +3,7 @@ name: ServiceNow GitHub Actions Demo
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   publish_SD:

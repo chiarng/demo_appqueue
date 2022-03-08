@@ -91,9 +91,6 @@ jobs:
           nowInstallInstance: ${{ secrets.CHIARNGTEST }}
           appSysID: ${{ secrets.APPQUEUE3 }}
 
-    outputs:
-      publishversion: ${{ needs.install_SD.outputs.publishversion }}
-
   install_T:
     name: Install test apps on T
     needs: publish_SD
@@ -105,7 +102,7 @@ jobs:
         id: install_app1
         uses: ServiceNow/sncicd-install-app@2.0.0
         with:
-          version: ${{ needs.install_SD.outputs.publishversion }}
+          version: ${{ needs.publish_SD.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
           nowPassword: ${{ secrets.NOW_PASSWORD }}
@@ -116,7 +113,7 @@ jobs:
         id: install_app2
         uses: ServiceNow/sncicd-install-app@2.0.0
         with:
-          version: ${{ needs.install_SD.outputs.publishversion }}
+          version: ${{ needs.publish_SD.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
           nowPassword: ${{ secrets.NOW_PASSWORD }}
@@ -127,7 +124,7 @@ jobs:
         id: install_app3
         uses: ServiceNow/sncicd-install-app@2.0.0
         with:
-          version: ${{ needs.install_SD.outputs.publishversion }}
+          version: ${{ needs.publish_SD.outputs.publishversion }}
         env:
           nowUsername: ${{ secrets.NOW_USERNAME }}
           nowPassword: ${{ secrets.NOW_PASSWORD }}
